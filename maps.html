@@ -1,0 +1,44 @@
+<html>
+ <head>
+   <style type="text/css">
+     html, body { height: 100%; margin: 0; padding: 0; }
+     #map { height: 100%; }
+   </style>
+ </head>
+ <body>
+   <!-- TODO 1: Create a place to put the map in the HTML-->
+   <div id="map"></div>
+   <div></div>
+   <script>
+     let map;
+     // TODO: Complete the following function to initialize the map
+     function initMap() {
+        map = new google.maps.Map(document.querySelector('#map'), {
+          center: {lat: 32.4340, lng: 34.9197},
+          zoom: 10,
+          styles: [
+            
+          ]
+      })
+          const kanaf = {lat: 32.8704, lng: 35.6979}
+          const marker = new google.maps.Marker({
+            position: kanaf,
+            map:map,
+            title: "Parents Home"
+          })
+          const infoWindow = new google.maps.InfoWindow({
+            content: "This is the place Dor Bar have grow-up."
+          })
+
+          marker.addListener("click", (e) => {
+            infoWindow.open(map, marker)
+          })
+
+     }
+   </script>
+   <!--TODO: Load the JS API ASYNCHRONOUSLY below.-->
+   <script async defer
+      src="https://maps.google.com/maps/api/js?key=AIzaSyDapmClICSEBk-pVR-tqrIbagwn747qAgM&v=3&callback=initMap">
+   </script>
+ </body>
+</html>
